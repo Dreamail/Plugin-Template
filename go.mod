@@ -4,14 +4,14 @@ go 1.20
 
 require (
 	github.com/FloatTech/zbpctrl v1.5.3-0.20230316111343-dd078fa43fe3
-	github.com/FloatTech/zbputils v1.6.2-0.20230316111555-2d1ec958de04
+	github.com/FloatTech/zbputils v1.6.2-0.20230331074541-89a5b4840e92
 	github.com/wdvxdr1123/ZeroBot v1.6.11
 )
 
 require (
-	github.com/FloatTech/floatbox v0.0.0-20230316111222-7ffde57284cc // indirect
-	github.com/FloatTech/gg v1.1.2 // indirect
-	github.com/FloatTech/imgfactory v0.2.2-0.20230315152233-49741fc994f9 // indirect
+	github.com/FloatTech/floatbox v0.0.0-20230331064925-9af336a84944 // indirect
+	github.com/FloatTech/gg v1.1.3-0.20230226151425-6ea91286ba08 // indirect
+	github.com/FloatTech/imgfactory v0.2.2-0.20230322091809-b0ddbe44b94b // indirect
 	github.com/FloatTech/rendercard v0.0.10-0.20230223064326-45d29fa4ede9 // indirect
 	github.com/FloatTech/sqlite v1.5.7 // indirect
 	github.com/FloatTech/ttl v0.0.0-20220715042055-15612be72f5b // indirect
@@ -26,7 +26,6 @@ require (
 	github.com/fumiama/imgsz v0.0.2 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
@@ -35,18 +34,14 @@ require (
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	golang.org/x/image v0.3.0 // indirect
-	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
-	golang.org/x/tools v0.1.12 // indirect
-	lukechampine.com/uint128 v1.2.0 // indirect
-	modernc.org/cc/v3 v3.40.0 // indirect
-	modernc.org/ccgo/v3 v3.16.13 // indirect
 	modernc.org/libc v1.21.5 // indirect
 	modernc.org/mathutil v1.5.0 // indirect
 	modernc.org/memory v1.4.0 // indirect
-	modernc.org/opt v0.1.3 // indirect
 	modernc.org/sqlite v1.20.0 // indirect
-	modernc.org/strutil v1.1.3 // indirect
-	modernc.org/token v1.0.1 // indirect
 )
+
+replace modernc.org/sqlite => github.com/fumiama/sqlite3 v1.20.0-with-win386
+
+replace github.com/remyoudompheng/bigfft => github.com/fumiama/bigfft v0.0.0-20211011143303-6e0bfa3c836b
