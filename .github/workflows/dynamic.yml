@@ -1,0 +1,58 @@
+name: Build with xgo
+
+on: [push, pull_request]
+
+jobs:
+  xgo:
+    name: Build Dynamic-Plugin on Push 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        uses: crazy-max/ghaction-xgo@v2
+        with:
+          xgo_version: latest
+          go_version: latest
+          dest: build
+          prefix: plugin
+          targets: linux/amd64,linux/arm64,darwin/amd64,darwin/arm64
+          v: true
+          x: false
+          race: false
+          ldflags: -s -w
+          buildmode: plugin
+          trimpath: false
+
+      - name: Rename binary
+        run: |
+          mv build/plugin-linux-amd64 build/plugin-linux-amd64.so
+          mv build/plugin-linux-arm64 build/plugin-linux-arm64.so
+          mv build/plugin-darwin-amd64 build/plugin-darwin-amd64.dylib
+          mv build/plugin-darwin-arm64 build/plugin-darwin-arm64.dylib
+
+      - name: Upload linux-amd64
+        uses: actions/upload-artifact@master
+        if: ${{ !github.head_ref }}
+        with:
+          name: plugin-linux-amd64
+          path: build/plugin-linux-amd64.so
+      - name: Upload linux-arm64
+        uses: actions/upload-artifact@master
+        if: ${{ !github.head_ref }}
+        with:
+          name: plugin-linux-arm64
+          path: build/plugin-linux-arm64.so
+      - name: Upload darwin-amd64
+        uses: actions/upload-artifact@master
+        if: ${{ !github.head_ref }}
+        with:
+          name: plugin-darwin-amd64
+          path: build/plugin-darwin-amd64.dylib
+      - name: Upload darwin-arm64
+        uses: actions/upload-artifact@master
+        if: ${{ !github.head_ref }}
+        with:
+          name: plugin-darwin-arm64
+          path: build/plugin-darwin-arm64.dylib
